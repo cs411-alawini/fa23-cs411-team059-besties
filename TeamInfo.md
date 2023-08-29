@@ -7,7 +7,7 @@
 | TeamID      |        Team-059        |
 | TeamName    |        besties         |
 | Captain     |        Aditi Roy       |
-| Member1     |  aditir2@illinois.edu  |
+| Captain     |  aditir2@illinois.edu  |
 | Member1     |       Ramya Reddy      |
 | Member1     |  ramyar3@illinois.edu  |
 | Member2     |    Iniya Murugasamy    |
