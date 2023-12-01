@@ -1,0 +1,24 @@
+<!-- views/goal-salary-results-fragment.ejs -->
+<% if (data && data.length > 0) { %>
+    <h3>Search Results for goal salary <%= studentId %></h3>
+    <table>
+        <thead>
+            <tr>
+                <% Object.keys(data[0]).forEach(function (columnName) { %>
+                    <th><%= columnName %></th>
+                <% }); %>
+            </tr>
+        </thead>
+        <tbody>
+            <% data.forEach(function (row) { %>
+                <tr>
+                    <% Object.values(row).forEach(function (value) { %>
+                        <td><%= value %></td>
+                    <% }); %>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+<% } else { %>
+    <p>No results found for Salary <%= studentId %></p>
+<% } %>

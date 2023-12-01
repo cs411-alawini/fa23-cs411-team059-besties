@@ -1,0 +1,56 @@
+<!-- views/enter-goal-salary.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Goal Salary Page</title>
+
+    <!-- Bootstrap CSS (you can include it from a CDN) -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <!-- jQuery library (you can include it from a CDN) -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <script>
+        function searchData() {
+            // Get the student ID from the input field
+            var studentId = $('#studentId').val();
+
+            // Validate that studentId is an integer
+            if (!/^\d+$/.test(studentId)) {
+                alert('Invalid salary. Please enter a valid integer.');
+                return;
+            }
+
+            // Make an AJAX request to the server to fetch search results
+            $.post('/enter-goal-salary.html', { studentId: studentId }, function (data) {
+                // Update the content of the searchResultsContainer with the results
+                $('#searchResultsContainer').html(data);
+            });
+        }
+    </script>
+</head>
+
+<body class="container mt-4">
+    <h2>Search Data Page</h2>
+
+    <div class="form-group">
+        <label for="studentId">Enter Goal Salary:</label>
+        <input type="text" class="form-control" id="studentId" name="studentId" required>
+    </div>
+
+    <button class="btn btn-primary" onclick="searchData()">Search Data</button>
+
+    <!-- Container to display search results -->
+    <div id="searchResultsContainer" class="mt-4"></div>
+
+    <!-- Bootstrap JS (you can include it from a CDN) -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>
+
+

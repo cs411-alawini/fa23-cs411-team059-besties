@@ -1,0 +1,52 @@
+<!-- goal-salary-fragment.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goal Salary Results</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h2>Goal Salary Results</h2>
+    <p>Student ID: <%= studentId %></p>
+
+    <% if (data && data.length > 0) { %>
+        <table>
+            <thead>
+                <tr>
+                    <% Object.keys(data[0][0]).forEach(function(header) { %>
+                        <th><%= header %></th>
+                    <% }); %>
+                </tr>
+            </thead>
+            <tbody>
+                <% data[0].forEach(function(result) { %>
+                    <tr>
+                        <% Object.values(result).forEach(function(value) { %>
+                            <td><%= value %></td>
+                        <% }); %>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    <% } else { %>
+        <p>No results found for the specified student ID.</p>
+    <% } %>
+</body>
+</html>

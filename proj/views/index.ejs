@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Navigation Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .option {
+            margin: 10px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            font-size: 16px;
+            padding: 10px 20px;
+            border: 2px solid #333;
+            border-radius: 5px;
+            background-color: #fff;
+            transition: background-color 0.3s;
+        }
+
+        a:hover {
+            background-color: #333;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+	<h1>Recruitment Dashboard</h1>
+        <h2>What would you like to do?</h2>
+        <div class="options">
+            <div class="option">
+                <a href="see-all-data.html">See All Data</a>
+            </div>
+	    <div class="option">
+                <a href="overall-stats.html">See Overall Data Statistics</a>
+            </div>
+            <div class="option">
+                <a href="search-data.html">Search Data</a>
+            </div>
+            <div class="option">
+                <a href="update-data.html">Update Data</a>
+            </div>
+	    <div class="option">
+                <a href="enter-goal-salary.html">Plan Path to Goal Salary</a>
+            </div>
+	    <div class="option">
+                <a href="enter-undergrad-field.html">See Current Track</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Update Student Data</title>
+
+    <!-- Bootstrap CSS (you can include it from a CDN) -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <!-- jQuery library (you can include it from a CDN) -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // Function to handle updating data
+            function updateData() {
+                // Get the entered values
+                var studentId = $('#updateStudentId').val();
+                var gender = $('#updateGender').val();
+                var schoolId = $('#updateSchoolId').val();
+                var tenthBoardId = $('#updateTenthBoardId').val();
+                var twelfthBoardId = $('#updateTwelfthBoardId').val();
+                var twelfthSpecId = $('#updateTwelfthSpecId').val();
+                var undergradFieldId = $('#updateUndergradField').val();
+                var mbaspecId = $('#updateMBASpecId').val();
+
+                // if (!studentId || !gender || !schoolId || !tenthBoardId || !twelfthBoardId || !twelfthSpecId || !undergradFieldId || !mbaspecId) {
+                //     alert('Please fill out all required fields.');
+                //     return;
+                // }
+
+                // Make an AJAX request to the server to update data
+                $.post('/update-data.html', {
+                    studentId: studentId,
+                    gender: gender,
+                    schoolId: schoolId,
+                    tenthBoardId: tenthBoardId,
+                    twelfthBoardId: twelfthBoardId,
+                    twelfthSpecId: twelfthSpecId,
+                    undergradFieldId: undergradFieldId,
+                    mbaspecId: mbaspecId
+                }, function (data) {
+                   alert(data);
+                });
+            }
+
+            // Function to handle inserting data
+            function insertData() {
+                // Get the entered values
+                var studentId = $('#insertStudentId').val();
+                var gender = $('#insertGender').val();
+                var schoolId = $('#insertSchoolId').val();
+                var tenthBoardId = $('#insertTenthBoardId').val();
+                var twelfthBoardId = $('#insertTwelfthBoardId').val();
+                var twelfthSpecId = $('#insertTwelfthSpecId').val();
+                var undergradFieldId = $('#insertUndergradField').val();
+                var mbaspecId = $('#insertMBASpecId').val();
+
+                // if (!studentId || !gender || !schoolId || !tenthBoardId || !twelfthBoardId || !twelfthSpecId || !undergradFieldId || !mbaspecId) {
+                //     alert('Please fill out all required fields.');
+                //     return;
+                // }
+
+                // Make an AJAX request to the server to update data
+                $.post('/insert-data.html', {
+                    studentId: studentId,
+                    gender: gender,
+                    schoolId: schoolId,
+                    tenthBoardId: tenthBoardId,
+                    twelfthBoardId: twelfthBoardId,
+                    twelfthSpecId: twelfthSpecId,
+                    undergradFieldId: undergradFieldId,
+                    mbaspecId: mbaspecId
+                }, function (data) {
+                   alert(data);
+                });
+            }
+
+            // Function to handle deleting data
+            function deleteData() {
+                // Get the entered studentId for deletion
+                var studentId = $('#deleteStudentId').val();
+
+                if (!studentId) {
+                    alert("Please fil out all required fields");
+                    return;
+                }
+
+                // Make an AJAX request to the server to delete data
+                $.post('/delete-data', {
+                    studentId: studentId
+                }, function (data) {
+                    alert(data);
+                });
+            }
+
+            // Event listener for update button
+            $('#updateBtn').click(updateData);
+
+            // Event listener for insert button
+            $('#insertBtn').click(insertData);
+
+            // Event listener for delete button
+            $('#deleteBtn').click(deleteData);
+        });
+    </script>
+</head>
+
+<body class="container mt-4">
+    <h2>Update, Insert, and Delete Student Data</h2>
+
+    <!-- Section 1: Update Data -->
+    <div>
+        <h3>Update Student Data</h3>
+        <form id="updateForm">
+            <!-- Input fields for updating data -->
+            <div class="form-group">
+                <label for="updateStudentId">Student ID:</label>
+                <input type="text" class="form-control" id="updateStudentId" name="updateStudentId" required>
+            </div>
+            <div class="form-group">
+                <label for="updateGender">Gender:</label>
+                <input type="text" class="form-control" id="updateGender" name="updateGender" required>
+            </div>
+            <div class="form-group">
+                <label for="updateSchoolId">School ID:</label>
+                <input type="text" class="form-control" id="updateSchoolId" name="updateSchoolId" required>
+            </div>
+            <div class="form-group">
+                <label for="updateTenthBoardId">Tenth Board ID:</label>
+                <input type="text" class="form-control" id="updateTenthBoardId" name="updateTenthBoardId" required>
+            </div>
+            <div class="form-group">
+                <label for="updateTwelfthBoardId">Twelfth Board ID:</label>
+                <input type="text" class="form-control" id="updateTwelfthBoardId" name="updateTwelfthBoardId" required>
+            </div>
+            <div class="form-group">
+                <label for="updateTwelfthSpecId">Twelfth Specialization ID:</label>
+                <input type="text" class="form-control" id="updateTwelfthSpecId" name="updateTwelfthSpecId" required>
+            </div>
+           <div class="form-group">
+                <label for="updateUndergradField">Undergrad Field:</label>
+                <input type="text" class="form-control" id="updateUndergradField" name="updateUndergradField" required>
+            </div>
+           <div class="form-group">
+                <label for="updateMBASpecId">MBA Specialization ID:</label>
+                <input type="text" class="form-control" id="updateMBASpecId" name="updateMBASpecId" required>
+            </div>
+            <!-- Repeat similar form groups for other fields -->
+            <button type="button" class="btn btn-primary" id="updateBtn">Update</button>
+        </form>
+    </div>
+
+    <!-- Section 2: Insert Data -->
+    <div>
+        <h3>Insert Student Data</h3>
+        <form id="insertForm">
+            <!-- Input fields for inserting data -->
+           <div class="form-group">
+                <label for="insertStudentId">Student ID:</label>
+                <input type="text" class="form-control" id="insertStudentId" name="insertStudentId" required>
+            </div>
+            <div class="form-group">
+                <label for="insertGender">Gender:</label>
+                <input type="text" class="form-control" id="insertGender" name="insertGender" required>
+            </div>
+            <div class="form-group">
+                <label for="insertSchoolId">School ID:</label>
+                <input type="text" class="form-control" id="insertSchoolId" name="insertSchoolId" required>
+            </div>
+            <div class="form-group">
+                <label for="insertTenthBoardId">Tenth Board ID:</label>
+                <input type="text" class="form-control" id="insertTenthBoardId" name="insertTenthBoardId" required>
+            </div>
+            <div class="form-group">
+                <label for="insertTwelfthBoardId">Twelfth Board ID:</label>
+                <input type="text" class="form-control" id="insertTwelfthBoardId" name="insertTwelfthBoardId" required>
+            </div>
+            <div class="form-group">
+                <label for="insertTwelfthSpecId">Twelfth Specialization ID:</label>
+                <input type="text" class="form-control" id="insertTwelfthSpecId" name="insertTwelfthSpecId" required>
+            </div>
+           <div class="form-group">
+                <label for="insertUndergradField">Undergrad Field:</label>
+                <input type="text" class="form-control" id="insertUndergradField" name="insertUndergradField" required>
+            </div>
+           <div class="form-group">
+                <label for="insertMBASpecId">MBA Specialization ID:</label>
+                <input type="text" class="form-control" id="insertMBASpecId" name="insertMBASpecId" required>
+            </div>
+            <!-- ... (Add the form groups for other fields) -->
+            <button type="button" class="btn btn-success" id="insertBtn">Insert</button>
+        </form>
+    </div>
+
+    <!-- Section 3: Delete Data -->
+    <div>
+        <h3>Delete Student Data</h3>
+        <form id="deleteForm">
+            <!-- Input fields for deleting data -->
+                <div class="form-group">
+                <label for="deleteStudentId">Student ID:</label>
+                <input type="text" class="form-control" id="deleteStudentId" name="deleteStudentId" required>
+            </div>
+            <button type="button" class="btn btn-success" id="deleteBtn">Delete</button>
+        </form>
+    </div>

@@ -1,0 +1,25 @@
+<!-- views/undergrad-field-results-fragment.ejs -->
+
+<% if (data && data.length > 0) { %>
+    <h3>Search Results for Undergraduate Field <%= undergradField %></h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <% Object.keys(data[0]).forEach(function (columnName) { %>
+                    <th><%= columnName %></th>
+                <% }); %>
+            </tr>
+        </thead>
+        <tbody>
+            <% data.forEach(function (row) { %>
+                <tr>
+                    <% Object.values(row).forEach(function (value) { %>
+                        <td><%= value %></td>
+                    <% }); %>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+<% } else { %>
+    <p>No results found for Undergraduate Field <%= undergradField %></p>
+<% } %>

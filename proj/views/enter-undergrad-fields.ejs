@@ -1,0 +1,50 @@
+<!-- views/enter-undergrad-field.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Enter Your Undergraduate Field</title>
+
+    <!-- Bootstrap CSS (you can include it from a CDN) -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <!-- jQuery library (you can include it from a CDN) -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#submitBtn').click(function () {
+                // Get the entered undergraduate field
+                var undergradField = $('#undergradField').val();
+
+                // Make an AJAX request to the server to fetch results
+                $.post('/enter-undergrad-field.html', { undergradField: undergradField }, function (data) {
+                    // Update the content of the resultsContainer with the results
+                    $('#resultsContainer').html(data);
+                });
+            });
+        });
+    </script>
+</head>
+
+<body class="container mt-4">
+    <h2>Enter Your Undergraduate Field</h2>
+
+    <div class="form-group">
+        <label for="undergradField">Enter your undergraduate field here:</label>
+        <input type="text" class="form-control" id="undergradField" name="undergradField" required>
+    </div>
+
+    <button class="btn btn-primary" id="submitBtn">Submit</button>
+
+    <!-- Container to display search results -->
+    <div id="resultsContainer" class="mt-4"></div>
+
+    <!-- Bootstrap JS (you can include it from a CDN) -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>
